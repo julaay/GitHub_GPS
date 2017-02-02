@@ -24,8 +24,9 @@
         android:id="@+id/tVtime" />
 
     <Button
-        android:text="Button"
+        android:text="Anzeigen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Anzeigen" />
+        android:id="@+id/Anzeigen"
+        android:onClick="AnzeigenOnClick" />
 </LinearLayout>

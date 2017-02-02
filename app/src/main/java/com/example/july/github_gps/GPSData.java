@@ -8,12 +8,18 @@ public class GPSData {
     int langitude;
     int latitude;
     String date;
+    String time;
 
-    public GPSData(int langitude, int latitude, String date) {
+    public GPSData(String date, int langitude, int latitude, String time) {
+        this.date = date;
         this.langitude = langitude;
         this.latitude = latitude;
-        this.date = date;
+        this.time = time;
     }
+
+    public String getTime() {return time; }
+
+    public void setTime(String time) {this.time = time;}
 
     public int getLangitude() {
         return langitude;

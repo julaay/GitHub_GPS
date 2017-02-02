@@ -30,11 +30,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addData(int langitude,int latitude,String date,SQLiteDatabase db){
+    public void addData(double langitude,double latitude,String date,String time, SQLiteDatabase db){
         ContentValues cv=new ContentValues();
         cv.put(String.valueOf(g.getLangitude()),langitude);
         cv.put(String.valueOf(g.getLatitude()),latitude);
         cv.put(g.getDate(),date);
+        cv.put(g.getTime(),time);
         db.insert(table,null,cv);
         Log.e("DATABASE OPERATIONS","One row inserted...");
     }

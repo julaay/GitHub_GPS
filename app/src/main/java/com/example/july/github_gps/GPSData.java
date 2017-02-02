@@ -5,14 +5,14 @@ package com.example.july.github_gps;
  */
 
 public class GPSData {
-    int langitude;
-    int latitude;
+    double longitude;
+    double latitude;
     String date;
     String time;
 
-    public GPSData(String date, int langitude, int latitude, String time) {
+    public GPSData(String date, double longitude, double latitude, String time) {
         this.date = date;
-        this.langitude = langitude;
+        this.longitude = longitude;
         this.latitude = latitude;
         this.time = time;
     }
@@ -21,15 +21,15 @@ public class GPSData {
 
     public void setTime(String time) {this.time = time;}
 
-    public int getLangitude() {
-        return langitude;
+    public double getLangitude() {
+        return longitude;
     }
 
     public void setLangitude(int langitude) {
-        this.langitude = langitude;
+        this.longitude = langitude;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 

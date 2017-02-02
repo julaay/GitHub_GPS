@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             return;
         }
 
-        locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, (LocationListener) this);
+        locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5,  this);
 
 
     }
@@ -66,17 +66,24 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             double dbl2 = location.getLongitude();
              Date date = new Date();
 
-            GPSData p = new GPSData(){
-                String.format(keine ahnung wos do steht aufn bild :D),
-                String.format(keine ahnung wos do steht aufn bild :D),
-                android.test.format.DateFormat.format("DD.MM.YYYY",date.getTime()).toString(),
-                        android.test.format.DateFormat.format("HH.mm",date.getTime()).toString()};
+            GPSData p = new GPSData(android.text.format.DateFormat.format("DD.MM.YYYY",date.getTime()).toString(),
+                                    dbl2,dbl1,
+                                    android.text.format.DateFormat.format("HH.mm", date.getTime()).toString());
 
-            ((EditText)findViewById(R.id.editText_position)).setText(p.toString);
 
-            DataBaseHelper dbHelper = new DataBaseHelper(this);
-            SQLiteDatabase db = dbHelper.getWriteableDatabase();
-            db.execSQL(PositionsTbl.STMT_INSERT,new String[]{p.longitude,p.latitude,p.date, p.time});
+            TextView tVlongitude= (TextView) findViewById(R.id.tVlongitude);
+            TextView tVdate= (TextView) findViewById(R.id.tVdate);
+            TextView tVtime= (TextView) findViewById(R.id.tVtime);
+            TextView tVlatitude= (TextView) findViewById(R.id.tVlatitude);
+            tVlongitude.setText(""+p.getLangitude()+"");
+            tVlatitude.setText(""+p.getLatitude()+"");
+            tVtime.setText(p.getTime());
+            tVdate.setText(p.getDate());
+
+
+            DbHelper dbHelper = new DbHelper(this);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            db.execSQL(PositionsTbl.STMT_INSERT,new String[]{p.getLangitude(),p.getLatitude(),p.getDate(), p.getTime()});//i check des nd
             db.close();
 
         }

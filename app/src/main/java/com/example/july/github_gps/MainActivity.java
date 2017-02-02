@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
         locMan = (LocationManager) getSystemService(LOCATION_SERVICE);
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onStatusChanged(String s, int i, Bundle bunlde){}
     public void onProviderEnabled(String s, int i, Bundle bunlde){}
-    public void onProviderDisabled(String s, int i, Bundle bunlde){}//keine ahnung woher er die mehtoden hod
+    public void onProviderDisabled(String s, int i, Bundle bunlde){}//keine ahnung woher er die mehtoden hod ,des san ole overide mehtods
 
 
 

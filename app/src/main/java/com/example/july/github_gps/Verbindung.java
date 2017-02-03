@@ -25,6 +25,11 @@ public class Verbindung extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.d(TAG,"OnCreate bei Verbindung");
+        db.execSQL(GPSTable.SQL_CREATE);
+
+
+        db.execSQL(GPSTable.STMT_INSERT, new String[]{"1test", "2test", "3test","4test"});
 
     }
 
@@ -32,9 +37,10 @@ public class Verbindung extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         Log.d(TAG, "============> onUpgrade DbVerbindung: Version" + oldVersion + "---->" + newVersion);
-        db.execSQL(GPSData.SQLDROP);
-        db.execSQL(GPSData.SQL_CREATE);
-        db.execSQL(GPSData.STMT_INSERT, new String[]{"1", "testvn", "testnn","19"});
+
+        db.execSQL(GPSTable.SQL_DROP);
+        db.execSQL(GPSTable.SQL_CREATE);
+        db.execSQL(GPSTable.STMT_INSERT, new String[]{"test1", "test2", "test2","test4"});
         onCreate(db);
 
     }

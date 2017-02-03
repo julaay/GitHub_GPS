@@ -82,8 +82,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             DbHelper dbHelper = new DbHelper(this);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-         //   db.execSQL(GPSData.STMT_INSERT,new String[]{p.getLangitude(),p.getLatitude(),p.getDate(), p.getTime()});//i check des nd
-        //    db.close();
+
+
+            db.execSQL(GPSTable.STMT_INSERT, new String[]{String.valueOf(p.getLangitude()),String.valueOf(p.getLatitude()),p.getDate(), p.getTime()});
+
+
+           db.close();
 
         }
     }

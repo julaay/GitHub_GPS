@@ -26,15 +26,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.main);
         locMan = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        //JULAY IS LIT
-        //FLOS PB IS LIT
+
 
     }
 
 
     public void btnclick(final View view) {
-        Intent intent = new Intent(this,ShowLogs.class);
-        startActivity(intent);
+        Intent intent= new Intent(this, ShowLogs.class);
+       startActivity(intent);
+
     }
 
     @Override

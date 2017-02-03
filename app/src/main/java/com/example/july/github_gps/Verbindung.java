@@ -11,9 +11,9 @@ import android.util.Log;
  */
 
 public class Verbindung extends SQLiteOpenHelper {
-    public Verbindung(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+   /** public Verbindung(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-    }
+    }**/
     private final static String TAG = "";
     private final static String DB_Name = "GPS.db";
     private static final int DB_VERSION = 3;

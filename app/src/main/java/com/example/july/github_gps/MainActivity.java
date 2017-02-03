@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
 
-    public void AnzeigenOnClick(final View view) {
+    public void btnclick(final View view) {
         Intent intent = new Intent(this,ShowLogs.class);
         startActivity(intent);
     }

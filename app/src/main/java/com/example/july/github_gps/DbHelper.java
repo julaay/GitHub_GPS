@@ -11,6 +11,7 @@ import android.util.Log;
  */
 
 public class DbHelper extends SQLiteOpenHelper {
+
     GPSData g;
     String table="GPS";
     String query=

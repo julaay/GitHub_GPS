@@ -4,7 +4,7 @@ package com.example.july.github_gps;
  * Created by Nikola on 27.01.17.
  */
 
-public class GPSData {
+public class GPSData  {
     double longitude;
     double latitude;
     String date;

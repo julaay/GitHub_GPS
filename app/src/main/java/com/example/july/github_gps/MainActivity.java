@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     protected void onResume() {
         super.onResume();
 
-        //da flo hot do a if mehtode die brauch ma nd weil ma de permissions ehh drin hobm
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+      if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
         locMan.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5,  this);
-
-
     }
 
 
@@ -84,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             DbHelper dbHelper = new DbHelper(this);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-            db.execSQL(PositionsTbl.STMT_INSERT,new String[]{p.getLangitude(),p.getLatitude(),p.getDate(), p.getTime()});//i check des nd
-            db.close();
+         //   db.execSQL(GPSData.STMT_INSERT,new String[]{p.getLangitude(),p.getLatitude(),p.getDate(), p.getTime()});//i check des nd
+        //    db.close();
 
         }
     }
@@ -107,4 +105,4 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
     }
-}
+

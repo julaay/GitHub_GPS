@@ -15,9 +15,6 @@ public static String date= "Date";
 
 
 
-    public static  final String firstname="FirstName";
-    public static final String lastname="LastName";
-    public static final String age="Age";
 
     public static final String[] ALL_COLUMNS=new String[] {String.valueOf(longitude),String.valueOf(latidude),date,time};
 

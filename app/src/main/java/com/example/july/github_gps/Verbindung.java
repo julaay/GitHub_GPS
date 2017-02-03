@@ -15,7 +15,7 @@ public class Verbindung extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
     private final static String TAG = "";
-    private final static String DB_Name = "locs.db";
+    private final static String DB_Name = "GPS.db";
     private static final int DB_VERSION = 3;
 
     public Verbindung(Context context) {

@@ -35,15 +35,14 @@ public class ShowLogs extends AppCompatActivity{
         Verbindung dbVerbindung = new Verbindung(this);
         SQLiteDatabase db = dbVerbindung.getReadableDatabase();
 
-        Log.d(TAG, "Personen Table ----------> INSERT STATEMENT");
-        //     db.execSQL(PersonsTable.STMT_INSERT, new String[]{"1", "july", "eigner","19"});
-        //   db.execSQL(PersonsTable.STMT_INSERT, new String[]{"2", "paul", "eigner","0"});
+        Log.d(TAG, "GPSTable Table ----------> INSERT STATEMENT");
+
 
 
         Log.d(TAG, "Statement wurde erfolgreich in die Tabelle hinzugefügt");
         String name = "";
 
-        Cursor rows = db.rawQuery("SELECTLONGITUDE , LATITUDE, DATE, TIME FROM GPS", new String[]{"3"});
+        Cursor rows = db.rawQuery("SELECT LONGITUDE , LATITUDE, DATE, TIME FROM GPS", new String[]{"3"});
         if(rows.getCount() > 0)
         {
             Log.d(TAG, "Cursor wird auf Daten überprüft ------------> Cursor rows");

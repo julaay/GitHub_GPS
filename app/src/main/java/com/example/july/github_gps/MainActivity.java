@@ -65,7 +65,7 @@ double lat= location.getLatitude();
             double long1= location.getLongitude();
              Date date = new Date();
 
-            GPSData p = new GPSData(android.text.format.DateFormat.format("DD.MM.YYYY",date.getTime()), lat,long1, android.text.format.DateFormat.format("HH.mm", date.getTime()));
+            GPSData p = new GPSData(String.format("4.4f", lat), String.format("4.4f", long1), android.text.format.DateFormat.format("DD.MM.YYYY",date.getTime()).toString(), (String) android.text.format.DateFormat.format("HH:mm", date.getTime()));
 
 
             TextView tVlongitude= (TextView) findViewById(R.id.tVlongitude);

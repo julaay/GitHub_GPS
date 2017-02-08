@@ -5,31 +5,31 @@ package com.example.july.github_gps;
  */
 
 public class GPSData  {
-    double longitude;
-    double latitude;
+    String longitude;
+    String latitude;
     String date;
     String time;
 
-    public GPSData(CharSequence date, double longitude, double latitude, CharSequence time) {
+    public GPSData(String date, String longitude, String latitude, String time) {
         this.date = (String) date;
         this.longitude = longitude;
         this.latitude = latitude;
         this.time = (String) time;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

@@ -60,20 +60,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         if(location!=null){
-            double dbl1 = location.getLatitude();
-            double dbl2 = location.getLongitude();
+
+double lat= location.getLatitude();
+            double long1= location.getLongitude();
              Date date = new Date();
 
-            GPSData p = new GPSData(android.text.format.DateFormat.format("DD.MM.YYYY",date.getTime()).toString(),
-                                    dbl2,dbl1,
-                                    android.text.format.DateFormat.format("HH.mm", date.getTime()).toString());
+            GPSData p = new GPSData(android.text.format.DateFormat.format("DD.MM.YYYY",date.getTime()), lat,long1, android.text.format.DateFormat.format("HH.mm", date.getTime()));
 
 
             TextView tVlongitude= (TextView) findViewById(R.id.tVlongitude);
             TextView tVdate= (TextView) findViewById(R.id.tVdate);
             TextView tVtime= (TextView) findViewById(R.id.tVtime);
             TextView tVlatitude= (TextView) findViewById(R.id.tVlatitude);
-            tVlongitude.setText(""+p.getLangitude()+"");
+            tVlongitude.setText(""+p.getLongitude()+"");
             tVlatitude.setText(""+p.getLatitude()+"");
             tVtime.setText(p.getTime());
             tVdate.setText(p.getDate());
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
 
-            db.execSQL(GPSTable.STMT_INSERT, new String[]{String.valueOf(p.getLangitude()),String.valueOf(p.getLatitude()),p.getDate(), p.getTime()});
+            db.execSQL(GPSTable.STMT_INSERT, new String[]{String.valueOf(p.getLongitude()),String.valueOf(p.getLatitude()),p.getDate(), p.getTime()});
 
 
            db.close();

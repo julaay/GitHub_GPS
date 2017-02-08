@@ -10,32 +10,34 @@ public class GPSData  {
     String date;
     String time;
 
-    public GPSData(String date, String longitude, String latitude, String time) {
-        this.date = date;
+    public GPSData(CharSequence date, double longitude, double latitude, CharSequence time) {
+        this.date = (String) date;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.time = time;
-    }
-
-    public String getTime() {return time; }
-
-    public void setTime(String time) {this.time = time;}
-
-    public double getLangitude() {
-        return longitude;
-    }
-
-    public void setLangitude(int langitude) {
-        this.longitude = langitude;
+        this.time = (String) time;
     }
 
     public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getTime() {return time; }
+
+    public void setTime(String time) {this.time = time;}
+
+
 
     public String getDate() {
         return date;

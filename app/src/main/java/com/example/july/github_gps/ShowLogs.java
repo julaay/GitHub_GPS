@@ -17,11 +17,8 @@ import java.util.ArrayList;
 
 public class ShowLogs extends AppCompatActivity{
 
-    private final static String TAG = "";
-    public static final String DB_NAME = "datenbank_list.db";
-    public static final int DB_VERSION = 1;
     ArrayList items = new ArrayList();
-    ListView lv= (ListView)findViewById(R.id.ListView);
+
 
 
 
@@ -31,26 +28,33 @@ public class ShowLogs extends AppCompatActivity{
         setContentView(R.layout.tabelle);
 
 
-        Log.d(TAG, "MainActivity -------> loadData Event gezündet");
-        Verbindung dbVerbindung = new Verbindung(this);
-        SQLiteDatabase db = dbVerbindung.getReadableDatabase();
 
-        Log.d(TAG, "GPSTable Table ----------> INSERT STATEMENT");
+        loadData();
 
 
 
-        Log.d(TAG, "Statement wurde erfolgreich in die Tabelle hinzugefügt");
         String name = "";
 
-        Cursor rows = db.rawQuery("SELECT LONGITUDE , LATITUDE, DATE, TIME FROM GPS", new String[]{"3"});
-        if(rows.getCount() > 0)
-        {
-            Log.d(TAG, "Cursor wird auf Daten überprüft ------------> Cursor rows");
-            rows.moveToFirst();
-            name = rows.getString(0)+ " " +rows.getString(1);
-            items.add(name);
-            rows.close();
         }
+
+
+    public void loadData(){
+        DbHelper dbHelper= new DbHelper(this);
+        SQLiteDatabase sqLiteDatabase= dbHelper.getReadableDatabase();
+
+        Cursor rows = sqLiteDatabase.rawQuery("SELECT LONGITUDE , LATITUDE, DATE, TIME FROM GPS", new String[]{});
+        while(rows.moveToNext() )
+        {
+            items.add(new GPSData(rows.getString(0), rows.getString(1), rows.getString(2), rows.getString(3))); }
+
+
+
+
+            rows.close();
+        sqLiteDatabase.close();
+
+ListView lv=(ListView)findViewById(R.id.ListView);
+
 
 
         ArrayAdapter adap= new ArrayAdapter(this, android.R.layout.simple_list_item_1, items);

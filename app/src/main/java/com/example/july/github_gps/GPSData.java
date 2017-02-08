@@ -10,7 +10,7 @@ public class GPSData  {
     String date;
     String time;
 
-    public GPSData(String date, double longitude, double latitude, String time) {
+    public GPSData(String date, String longitude, String latitude, String time) {
         this.date = date;
         this.longitude = longitude;
         this.latitude = latitude;

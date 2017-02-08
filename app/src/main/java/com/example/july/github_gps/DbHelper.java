@@ -12,38 +12,30 @@ import android.util.Log;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    GPSData g;
-    String table="GPS";
-    String query=
-            "CREATE TABLE "+"GPS"+" (LONGITUDE"+" NUMBER, "+"LATITUDE"+" NUMBER, "+
-                    "DATE"+" TEX);";
+
+    public static final String TABLE_NAME  = "GPS.db";
+    private final static int DB_Version= 1;
+
+   public DbHelper  (Context context ){super (context, TABLE_NAME,null, DB_Version);}
 
 
-    public DbHelper(Context context) {
-        super(context, "DB", null, 1);
-        Log.e("DATABASE OPERATIONS","Database created / opened...");
-    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(query);
+        db.execSQL(GPSTable.SQL_CREATE);
+        db.execSQL(GPSTable.STMT_INSERT, new String[]{""+11,""+22,"08.02.2017","5:58"});
         Log.e("DATABASE OPERATIONS","Table created...");
 
     }
 
-    public void addData(double langitude,double latitude,String date,String time, SQLiteDatabase db){
-        ContentValues cv=new ContentValues();
-        cv.put(String.valueOf(g.getLangitude()),langitude);
-        cv.put(String.valueOf(g.getLatitude()),latitude);
-        cv.put(g.getDate(),date);
-        cv.put(g.getTime(),time);
-        db.insert(table,null,cv);
-        Log.e("DATABASE OPERATIONS","One row inserted...");
-    }
+
+
 
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+sqLiteDatabase.execSQL(GPSTable.SQL_DROP);
+        onCreate(sqLiteDatabase);
     }
 }
